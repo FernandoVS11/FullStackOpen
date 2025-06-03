@@ -4,7 +4,7 @@ sequenceDiagram
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
     activate server
-    server-->>browser: HTML document (SPA shell)
+    server-->>browser: HTML document for the SPA
     deactivate server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
@@ -14,14 +14,14 @@ sequenceDiagram
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
     activate server
-    server-->>browser: JavaScript SPA file
+    server-->>browser: JavaScript file for the SPA
     deactivate server
 
-    Note right of browser: JavaScript code runs and fetches the notes data
+    Note right of browser: The JavaScript executes and fetches notes data asynchronously
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
-    server-->>browser: JSON data with existing notes
+    server-->>browser: JSON with existing notes
     deactivate server
 
-    Note right of browser: JavaScript renders the notes without reloading the page
+    Note right of browser: The browser uses JavaScript to render the notes without reloading the page
