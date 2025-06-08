@@ -63,15 +63,18 @@ const App = () => {
         name: newName,
         number: newNumber
       }
-
-      phonebookService
-        .create(newPerson)
-        .then(returnedPerson => {
-          setPersons(persons.concat(returnedPerson))
-          showMessage(`Added ${returnedPerson.name}`)
-          setNewName('')
-          setNewNumber('')
-        })
+    phonebookService
+      .create(newPerson)
+      .then(returnedPerson => {
+        setPersons(persons.concat(returnedPerson))
+        showMessage(`Added ${returnedPerson.name}`)
+        setNewName('')
+        setNewNumber('')
+      })
+      .catch(error => {
+        console.error(error)
+        showMessage(error.response?.data?.error || 'Unknown error', 'error')
+      })
     }
   }
 
