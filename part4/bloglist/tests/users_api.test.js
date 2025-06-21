@@ -60,7 +60,8 @@ test('creation fails if password too short', async () => {
     .send(newUser)
     .expect(400)
 
-  assert.ok(result.body.error.includes('password missing or too short'))
+  
+    assert.ok(result.body.error.includes('password missing or too short'))
 })
 
 after(async () => {
